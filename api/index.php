@@ -32,4 +32,28 @@ $_ENV['SESSION_DRIVER'] = 'cookie';
 $_SERVER['SESSION_DRIVER'] = 'cookie';
 $_ENV['LOG_CHANNEL'] = 'stderr';
 $_SERVER['LOG_CHANNEL'] = 'stderr';
+
+putenv('DB_CONNECTION=mysql');
+$_ENV['DB_CONNECTION'] = 'mysql';
+$_SERVER['DB_CONNECTION'] = 'mysql';
+
+putenv('DB_HOST=gateway01.ap-southeast-1.prod.aws.tidbcloud.com');
+$_ENV['DB_HOST'] = 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com';
+$_SERVER['DB_HOST'] = 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com';
+
+putenv('DB_PORT=4000');
+$_ENV['DB_PORT'] = '4000';
+$_SERVER['DB_PORT'] = '4000';
+
+putenv('DB_DATABASE=test');
+$_ENV['DB_DATABASE'] = 'test';
+$_SERVER['DB_DATABASE'] = 'test';
+
+putenv('DB_USERNAME=3KugKQQueSHLBVh.root');
+$_ENV['DB_USERNAME'] = '3KugKQQueSHLBVh.root';
+$_SERVER['DB_USERNAME'] = '3KugKQQueSHLBVh.root';
+
+putenv('DB_PASSWORD=zU4oxXXJR6kn6n1Y');
+$_ENV['DB_PASSWORD'] = 'zU4oxXXJR6kn6n1Y';
+$_SERVER['DB_PASSWORD'] = 'zU4oxXXJR6kn6n1Y';
 require __DIR__ . '/../public/index.php';
