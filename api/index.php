@@ -57,19 +57,9 @@ putenv('DB_PASSWORD=zU4oxXXJR6kn6n1Y');
 $_ENV['DB_PASSWORD'] = 'zU4oxXXJR6kn6n1Y';
 $_SERVER['DB_PASSWORD'] = 'zU4oxXXJR6kn6n1Y';
 
-$caPaths = [
-    '/etc/ssl/certs/ca-certificates.crt',
-    '/etc/pki/tls/certs/ca-bundle.crt',
-    '/etc/ssl/ca-bundle.pem',
-    '/etc/ssl/cert.pem',
-];
-foreach ($caPaths as $path) {
-    if (is_file($path)) {
-        putenv('MYSQL_ATTR_SSL_CA=' . $path);
-        $_ENV['MYSQL_ATTR_SSL_CA'] = $path;
-        $_SERVER['MYSQL_ATTR_SSL_CA'] = $path;
-        break;
-    }
-}
+$caPath = __DIR__ . '/cacert.pem';
+putenv('MYSQL_ATTR_SSL_CA=' . $caPath);
+$_ENV['MYSQL_ATTR_SSL_CA'] = $caPath;
+$_SERVER['MYSQL_ATTR_SSL_CA'] = $caPath;
 
 require __DIR__ . '/../public/index.php';
