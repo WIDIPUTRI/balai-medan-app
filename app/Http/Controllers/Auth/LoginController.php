@@ -51,13 +51,17 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        $lastLog = AdminLoginLog::where('user_id', Auth::id())
-            ->whereNull('logout_at')
-            ->latest()
-            ->first();
+        try {
+            $lastLog = AdminLoginLog::where('user_id', Auth::id())
+                ->whereNull('logout_at')
+                ->latest()
+                ->first();
 
-        if ($lastLog) {
-            $lastLog->update(['logout_at' => now()]);
+            if ($lastLog) {
+                $lastLog->update(['logout_at' => now()]);
+            }
+        } catch (\Exception $e) {
+            // Silently ignore log update errors to allow logout to proceed
         }
 
         Auth::logout();
