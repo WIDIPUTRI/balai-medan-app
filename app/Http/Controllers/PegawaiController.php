@@ -143,7 +143,7 @@ class PegawaiController extends Controller
         // =========================
         // 4. Grafik Pangkat
         // =========================
-        $rank = Staff::selectRaw('rank, COUNT(*) as total')
+        $rank = Staff::selectRaw('`rank`, COUNT(*) as total')
             ->groupBy('rank')
             ->pluck('total', 'rank');
 

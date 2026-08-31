@@ -8,10 +8,10 @@ use App\Models\RealisasiAnggaran;
 use Illuminate\Support\Facades\DB;
 
 // Clear existing data
-DB::statement('PRAGMA foreign_keys = OFF');
+DB::statement('SET FOREIGN_KEY_CHECKS = 0');
 RealisasiAnggaran::truncate();
 Anggaran::truncate();
-DB::statement('PRAGMA foreign_keys = ON');
+DB::statement('SET FOREIGN_KEY_CHECKS = 1');
 
 $urutan = 0;
 
