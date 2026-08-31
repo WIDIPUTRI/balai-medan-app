@@ -78,7 +78,14 @@
                     <input type="file" name="photo"
                         class="w-full mt-1 border rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500">
                     @if($data->photo)
-                        <p class="mt-2 text-sm text-gray-500">Foto saat ini: {{ $data->photo }}</p>
+                        <div class="mt-2">
+                            <p class="text-sm text-gray-500 mb-2">Foto saat ini:</p>
+                            @if(Str::startsWith($data->photo, 'data:image'))
+                                <img src="{{ $data->photo }}" class="w-32 h-32 object-cover rounded shadow">
+                            @else
+                                <img src="{{ asset($data->photo) }}" class="w-32 h-32 object-cover rounded shadow">
+                            @endif
+                        </div>
                     @endif
                 </div>
 

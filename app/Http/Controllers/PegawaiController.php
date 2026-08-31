@@ -35,9 +35,10 @@ class PegawaiController extends Controller
         ]);
 
         if ($request->hasFile('photo')) {
-            $imageName = time() . '.' . $request->photo->extension();
-            $request->photo->move(public_path('images/pegawai'), $imageName);
-            $validated['photo'] = 'images/pegawai/' . $imageName;
+            $image = $request->file('photo');
+            $imageData = file_get_contents($image->getPathname());
+            $base64 = 'data:' . $image->getMimeType() . ';base64,' . base64_encode($imageData);
+            $validated['photo'] = $base64;
         }
 
         Staff::create($validated);
@@ -189,14 +190,10 @@ class PegawaiController extends Controller
         ]);
 
         if ($request->hasFile('photo')) {
-            // Delete old photo if exists
-            if ($data->photo && file_exists(public_path($data->photo))) {
-                unlink(public_path($data->photo));
-            }
-
-            $imageName = time() . '.' . $request->photo->extension();
-            $request->photo->move(public_path('images/pegawai'), $imageName);
-            $validated['photo'] = 'images/pegawai/' . $imageName;
+            $image = $request->file('photo');
+            $imageData = file_get_contents($image->getPathname());
+            $base64 = 'data:' . $image->getMimeType() . ';base64,' . base64_encode($imageData);
+            $validated['photo'] = $base64;
         }
 
         $data->update($validated);
