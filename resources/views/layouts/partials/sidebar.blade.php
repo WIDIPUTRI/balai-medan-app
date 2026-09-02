@@ -101,7 +101,7 @@
             <div x-data="{ openPegawai: {{ request()->routeIs('pegawai.*') ? 'true' : 'false' }} }" class="space-y-1">
                 <button @click="isMini ? (toggle(), openPegawai = true) : (openPegawai = !openPegawai)"
                     class="flex items-center justify-between w-full px-3 py-2.5 rounded-lg transition-all duration-200
-                                                {{ request()->routeIs('pegawai.*') ? 'bg-primary/5 text-primary' : 'text-gray-600 hover:bg-gray-50' }}" title="Pegawai">
+                                                            {{ request()->routeIs('pegawai.*') ? 'bg-primary/5 text-primary' : 'text-gray-600 hover:bg-gray-50' }}" title="Pegawai">
                     <div class="flex items-center">
                         <i class="fa-solid fa-users w-6 text-center text-lg"></i>
                         <span class="ml-3 font-medium whitespace-nowrap" x-show="!isMini"
@@ -135,7 +135,7 @@
                 class="space-y-1">
                 <button @click="isMini ? (toggle(), openKerja = true) : (openKerja = !openKerja)"
                     class="flex items-center justify-between w-full px-3 py-2.5 rounded-lg transition-all duration-200
-                                                {{ request()->routeIs('kerjasama.*') || request()->routeIs('purchases.*') ? 'bg-primary/5 text-primary' : 'text-gray-600 hover:bg-gray-50' }}"
+                                                            {{ request()->routeIs('kerjasama.*') || request()->routeIs('purchases.*') ? 'bg-primary/5 text-primary' : 'text-gray-600 hover:bg-gray-50' }}"
                     title="Kerja Sama">
                     <div class="flex items-center">
                         <i class="fa-solid fa-handshake w-6 text-center text-lg"></i>
@@ -158,6 +158,11 @@
                     <a href="{{ route('kerjasama.laporan') }}" @click="collapse()"
                         class="block px-3 py-2 rounded-md text-sm {{ request()->routeIs('kerjasama.laporan') ? 'text-primary font-semibold' : 'text-gray-500 hover:text-primary hover:bg-gray-50' }}">
                         Laporan Kerja Sama
+                    </a>
+                    <a href="https://datastudio.google.com/u/0/reporting/92bcf961-6ea5-4d74-86c8-73d1e14ac62e/page/towkF"
+                        target="_blank" @click="collapse()"
+                        class="block px-3 py-2 rounded-md text-sm text-gray-500 hover:text-primary hover:bg-gray-50">
+                        PROGRAM DTS
                     </a>
                 </div>
             </div>
@@ -216,6 +221,12 @@
                     class="sidebar-link flex items-center px-4 py-3 rounded-lg {{ request()->routeIs('kerjasama.*') ? 'active' : '' }}">
                     <i class="fa-solid fa-handshake w-5"></i>
                     <span class="ml-3">Kerjasama</span>
+                </a>
+
+                <a href="https://datastudio.google.com/u/0/reporting/92bcf961-6ea5-4d74-86c8-73d1e14ac62e/page/towkF"
+                    target="_blank" class="sidebar-link flex items-center px-4 py-3 rounded-lg">
+                    <i class="fa-solid fa-graduation-cap w-5"></i>
+                    <span class="ml-3">PROGRAM DTS</span>
                 </a>
             @endif
 
