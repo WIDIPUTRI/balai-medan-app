@@ -1,0 +1,2 @@
+d:\2025\PROJECT\balai\resources\views\kerjasama\laporan.blade.php:    <h2 class="text-2xl font-bold mb-6 text-gray-800">📊 Laporan Kerja Sama</h2>
+d:\2025\PROJECT\balai\resources\views\layouts\partials\sidebar.blade.php:                        Laporan Kerja Sama

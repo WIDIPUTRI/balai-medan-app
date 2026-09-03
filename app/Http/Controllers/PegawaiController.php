@@ -31,7 +31,10 @@ class PegawaiController extends Controller
             'education' => 'required',
             'rank' => 'required',
             'position' => 'required',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'kp_tanggal_sk' => 'nullable|date',
+            'kp_tmt' => 'nullable|date',
+            'kp_selanjutnya' => 'nullable|string'
         ]);
 
         if ($request->hasFile('photo')) {
@@ -186,7 +189,10 @@ class PegawaiController extends Controller
             'education' => 'required',
             'rank' => 'required',
             'position' => 'required',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'kp_tanggal_sk' => 'nullable|date',
+            'kp_tmt' => 'nullable|date',
+            'kp_selanjutnya' => 'nullable|string'
         ]);
 
         if ($request->hasFile('photo')) {
@@ -205,5 +211,14 @@ class PegawaiController extends Controller
     {
         Staff::destroy($id);
         return back()->with('success', 'Data berhasil dihapus.');
+    }
+
+    public function kpDashboard()
+    {
+        $pegawai = Staff::whereNotNull('kp_tanggal_sk')
+            ->orWhereNotNull('kp_tmt')
+            ->orWhereNotNull('kp_selanjutnya')
+            ->paginate(20);
+        return view('pegawai.kp', compact('pegawai'));
     }
 }

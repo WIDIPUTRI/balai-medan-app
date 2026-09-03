@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
-@section('page-title', 'Dashboard')
+@section('title', 'Dashboard TESTING_123')
+@section('page-title', 'Dashboard TESTING_123')
 
 @section('content')
     <div class="space-y-6">

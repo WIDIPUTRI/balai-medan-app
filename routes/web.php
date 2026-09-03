@@ -16,6 +16,10 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
+Route::get('/testenv', function () {
+    return 'CONFIGKEY:' . config('app.key') . '--ENVKEY:' . env('APP_KEY');
+});
+
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -28,8 +32,16 @@ Route::middleware('auth')->group(function () {
         return view('capaian.index');
     })->name('capaian');
 
+    // DTS Routes
+    Route::prefix('dts')->name('dts.')->group(function () {
+        Route::get('/program', function () {
+            return view('dts.program');
+        })->name('program');
+    });
+
     // Pegawai Routes
     Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai.index');
+    Route::get('/pegawai/kp', [PegawaiController::class, 'kpDashboard'])->name('pegawai.kp');
     Route::get('/pegawai/create', [PegawaiController::class, 'create'])->name('pegawai.create');
     Route::post('/pegawai/import', [PegawaiController::class, 'import'])->name('pegawai.import');
     Route::get('/pegawai/export/pdf', [PegawaiController::class, 'exportPdf'])->name('pegawai.exportPdf');

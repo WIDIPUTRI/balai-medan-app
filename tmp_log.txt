@@ -1,0 +1,1 @@
+D:\2025\PROJECT\balai\.env:3:APP_KEY=base64:/RGhQvppfexZbGNjgkrEeeLna7xAXim1iipkpbVXUWk=

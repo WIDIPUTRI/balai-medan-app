@@ -91,6 +91,35 @@
 
             </div>
 
+            {{-- HR (Pembatas) --}}
+            <div class="col-span-1 md:col-span-2 pt-4">
+                <h3 class="text-lg font-bold text-gray-800 border-b pb-2">Informasi Kenaikan Pangkat (Opsional)</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                {{-- TANGGAL SK KP TERAKHIR --}}
+                <div>
+                    <label class="block text-gray-700 font-medium">Tanggal SK KP Terakhir</label>
+                    <input type="date" name="kp_tanggal_sk" value="{{ $data->kp_tanggal_sk }}"
+                        class="w-full mt-1 border rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500">
+                </div>
+
+                {{-- TMT KP TERAKHIR --}}
+                <div>
+                    <label class="block text-gray-700 font-medium">TMT KP Terakhir</label>
+                    <input type="date" name="kp_tmt" value="{{ $data->kp_tmt }}"
+                        class="w-full mt-1 border rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500">
+                </div>
+
+                {{-- KP SELANJUTNYA --}}
+                <div class="col-span-1 md:col-span-2">
+                    <label class="block text-gray-700 font-medium">KP Selanjutnya (Keterangan / Prediksi Tanggal)</label>
+                    <input type="text" name="kp_selanjutnya" value="{{ $data->kp_selanjutnya }}"
+                        placeholder="Cth: 1 April 2026 atau 'Sudah pangkat tertinggi'"
+                        class="w-full mt-1 border rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500">
+                </div>
+            </div>
+
             <!-- TOMBOL -->
             <div class="col-span-2 flex justify-end gap-4 mt-6 pb-4">
 

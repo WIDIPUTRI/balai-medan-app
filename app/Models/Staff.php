@@ -16,6 +16,9 @@ class Staff extends Model
         'education',
         'rank',
         'position',
-        'photo'
+        'photo',
+        'kp_tanggal_sk',
+        'kp_tmt',
+        'kp_selanjutnya'
     ];
 }
