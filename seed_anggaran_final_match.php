@@ -100,7 +100,7 @@ $sk4_2 = createItem('001.0B', 'Gaji dan Tunjangan PPPK', 'sub_kegiatan', $k4->id
 createItem('511111', 'Belanja Gaji Pokok PPPK', 'akun', $sk4_2->id, 1000000000, 110943930, $urutan); // Partial
 
 $k4_2 = createItem('002', 'Operasional dan Pemeliharaan Kantor', 'kegiatan', $p4->id, 4826580000, 0, $urutan);
-$sk4_2_1 = createItem('002.0A', 'Operasional Gedung dan Pusat Logistik', 'sub_kegiatan', $k4_2->id, 874000000, 0, $urutan);
+$sk4_2_1 = createItem('002.0A', 'Operasional Gedung', 'sub_kegiatan', $k4_2->id, 874000000, 0, $urutan);
 createItem('521111', 'Belanja Keperluan Perkantoran', 'akun', $sk4_2_1->id, 87400000, 0, $urutan);
 
 // Add bulk item for rest of 4.8B
